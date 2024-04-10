@@ -9,10 +9,11 @@
       "ScreenshotDedithering": false,
       "AdbRestart": false
     },
-    "EmulatorInfo": {
-      "Emulator": "auto",
-      "name": null,
-      "path": null
+    "RestartEmulator": {
+      "Enable": false,
+      "EmulatorData": "emulator:\nname:\npath:",
+      "ErrorRestart": false,
+      "DailyRestart": false
     },
     "Error": {
       "HandleError": true,
@@ -310,9 +311,8 @@
     },
     "GemsFarming": {
       "ChangeFlagship": "ship",
-      "CommonCV": "any",
       "ChangeVanguard": "ship",
-      "CommonDD": "any",
+      "CommonCV": "any",
       "CommissionLimit": true
     },
     "Campaign": {

@@ -128,7 +128,7 @@ class Adb(Connection):
         if image is None:
             raise ImageTruncated('Empty image after cv2.imdecode')
 
-        cv2.cvtColor(image, cv2.COLOR_BGR2RGB, dst=image)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         if image is None:
             raise ImageTruncated('Empty image after cv2.cvtColor')
 

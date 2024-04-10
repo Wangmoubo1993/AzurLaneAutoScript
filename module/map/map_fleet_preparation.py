@@ -357,5 +357,4 @@ class FleetPreparation(InfoHandler):
         if self.appear(SUBMARINE_CLEAR, offset=(-20, -80, 20, 5)):
             AUTO_SEARCH_SET_SUB_AUTO.load_offset(SUBMARINE_CLEAR)
             AUTO_SEARCH_SET_SUB_STANDBY.load_offset(SUBMARINE_CLEAR)
-
         return True

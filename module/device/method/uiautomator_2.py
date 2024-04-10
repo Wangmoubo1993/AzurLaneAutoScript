@@ -122,7 +122,7 @@ class Uiautomator2(Connection):
         if image is None:
             raise ImageTruncated('Empty image after cv2.imdecode')
 
-        cv2.cvtColor(image, cv2.COLOR_BGR2RGB, dst=image)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         if image is None:
             raise ImageTruncated('Empty image after cv2.cvtColor')
 
@@ -243,7 +243,7 @@ class Uiautomator2(Connection):
         return hierarchy
 
     @retry
-    def resolution_uiautomator2(self, cal_rotation=True) -> t.Tuple[int, int]:
+    def resolution_uiautomator2(self) -> t.Tuple[int, int]:
         """
         Faster u2.window_size(), cause that calls `dumpsys display` twice.
 
@@ -252,10 +252,9 @@ class Uiautomator2(Connection):
         """
         info = self.u2.http.get('/info').json()
         w, h = info['display']['width'], info['display']['height']
-        if cal_rotation:
-            rotation = self.get_orientation()
-            if (w > h) != (rotation % 2 == 1):
-                w, h = h, w
+        rotation = self.get_orientation()
+        if (w > h) != (rotation % 2 == 1):
+            w, h = h, w
         return w, h
 
     def resolution_check_uiautomator2(self):
